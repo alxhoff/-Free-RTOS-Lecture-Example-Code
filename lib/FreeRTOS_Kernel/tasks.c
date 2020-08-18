@@ -3664,7 +3664,7 @@ static char *prvWriteNameToBuffer(char *pcBuffer, const char *pcTaskName)
 
 void vTaskList(char *pcWriteBuffer)
 {
-    TaskStatus_t *pxTaskStatusArray;
+    TaskStatus_t *pxTaskStatusArray = NULL;
     volatile UBaseType_t uxArraySize, x;
     char cStatus;
 

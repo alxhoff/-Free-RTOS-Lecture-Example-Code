@@ -1,0 +1,792 @@
+==182943== Memcheck, a memory error detector
+==182943== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==182943== Using Valgrind-3.16.0.GIT-d772e25995-20200502X and LibVEX; rerun with -h for copyright info
+==182943== Command: ../bin/FreeRTOS_Emulator
+==182943== Parent PID: 143652
+==182943== 
+--182943-- 
+--182943-- Valgrind options:
+--182943--    --leak-check=full
+--182943--    --show-leak-kinds=all
+--182943--    --track-origins=yes
+--182943--    --verbose
+--182943--    --log-file=valgrind-out.txt
+--182943-- Contents of /proc/version:
+--182943--   Linux version 5.6.16-1-MANJARO (builduser@development) (gcc version 10.1.0 (GCC)) #1 SMP PREEMPT Wed Jun 3 14:26:28 UTC 2020
+--182943-- 
+--182943-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--182943-- Page sizes: currently 4096, max supported 4096
+--182943-- Valgrind library directory: /usr/lib/valgrind
+--182943-- Reading syms from /home/alxhoff/git/GitHub/RTOS-Lecture-Example-Code/1_tasks/bin/FreeRTOS_Emulator
+--182943-- Reading syms from /usr/lib/ld-2.31.so
+--182943-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--182943--    object doesn't have a dynamic symbol table
+--182943-- Scheduler: using generic scheduler lock implementation.
+--182943-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==182943== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-182943-by-alxhoff-on-???
+==182943== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-182943-by-alxhoff-on-???
+==182943== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-182943-by-alxhoff-on-???
+==182943== 
+==182943== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==182943== don't want to do, unless you know exactly what you're doing,
+==182943== or are doing some strange experiment):
+==182943==   /usr/lib/valgrind/../../bin/vgdb --pid=182943 ...command...
+==182943== 
+==182943== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==182943==   /path/to/gdb ../bin/FreeRTOS_Emulator
+==182943== and then give GDB the following command
+==182943==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=182943
+==182943== --pid is optional if only one valgrind process is running
+==182943== 
+--182943-- REDIR: 0x40213c0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580b9662 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--182943-- REDIR: 0x4021190 (ld-linux-x86-64.so.2:index) redirected to 0x580b967c (vgPlain_amd64_linux_REDIR_FOR_index)
+--182943-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--182943-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+==182943== WARNING: new redirection conflicts with existing -- ignoring it
+--182943--     old: 0x040213c0 (strlen              ) R-> (0000.0) 0x580b9662 vgPlain_amd64_linux_REDIR_FOR_strlen
+--182943--     new: 0x040213c0 (strlen              ) R-> (2007.0) 0x0483cd90 strlen
+--182943-- REDIR: 0x401dba0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483dc60 (strcmp)
+--182943-- REDIR: 0x4021920 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4841450 (mempcpy)
+--182943-- Reading syms from /usr/lib/libSDL2-2.0.so.0.12.0
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libpthread-2.31.so
+--182943-- Reading syms from /usr/lib/libSDL2_gfx-1.0.so.0.0.2
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libSDL2_image-2.0.so.0.2.3
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libSDL2_mixer-2.0.so.0.2.2
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libSDL2_ttf-2.0.so.0.14.1
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libm-2.31.so
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/librt-2.31.so
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libc-2.31.so
+--182943-- Reading syms from /usr/lib/libdl-2.31.so
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libpng16.so.16.37.0
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libjpeg.so.8.2.2
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libtiff.so.5.5.0
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libz.so.1.2.11
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libwebp.so.7.1.0
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libfreetype.so.6.17.2
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libzstd.so.1.4.5
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/liblzma.so.5.2.5
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libbz2.so.1.0.8
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libharfbuzz.so.0.20600.7
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libglib-2.0.so.0.6400.3
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libgraphite2.so.3.2.1
+--182943--    object doesn't have a symbol table
+--182943-- Reading syms from /usr/lib/libpcre.so.1.2.12
+--182943--    object doesn't have a symbol table
+--182943-- REDIR: 0x4c732f0 (libc.so.6:memmove) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c72650 (libc.so.6:strncpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73620 (libc.so.6:strcasecmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c71f40 (libc.so.6:strcat) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c726b0 (libc.so.6:rindex) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c749c0 (libc.so.6:rawmemchr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8ce00 (libc.so.6:wmemchr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8c940 (libc.so.6:wcscmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73450 (libc.so.6:mempcpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73280 (libc.so.6:bcmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c725e0 (libc.so.6:strncmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c71ff0 (libc.so.6:strcmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c733b0 (libc.so.6:memset) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8c900 (libc.so.6:wcschr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c72540 (libc.so.6:strnlen) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c720d0 (libc.so.6:strcspn) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73670 (libc.so.6:strncasecmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c72070 (libc.so.6:strcpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c737c0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8e060 (libc.so.6:wcsnlen) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8c980 (libc.so.6:wcscpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c726f0 (libc.so.6:strpbrk) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c71fa0 (libc.so.6:index) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c72500 (libc.so.6:strlen) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c78db0 (libc.so.6:memrchr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c736c0 (libc.so.6:strcasecmp_l) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73240 (libc.so.6:memchr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c8ca50 (libc.so.6:wcslen) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c729b0 (libc.so.6:strspn) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c735c0 (libc.so.6:stpncpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73560 (libc.so.6:stpcpy) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c74a00 (libc.so.6:strchrnul) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73710 (libc.so.6:strncasecmp_l) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4cf0600 (libc.so.6:__memcpy_chk) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4c73160 (libc.so.6:strstr) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4cf06c0 (libc.so.6:__memmove_chk) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+==182943== WARNING: new redirection conflicts with existing -- ignoring it
+--182943--     old: 0x04d484a0 (__memcpy_chk_avx_una) R-> (2030.0) 0x04841550 __memcpy_chk
+--182943--     new: 0x04d484a0 (__memcpy_chk_avx_una) R-> (2024.0) 0x04840ec0 __memmove_chk
+--182943-- REDIR: 0x4c8caf0 (libc.so.6:wcsncmp) redirected to 0x482f1c0 (_vgnU_ifunc_wrapper)
+--182943-- REDIR: 0x4d452d0 (libc.so.6:__strrchr_avx2) redirected to 0x483c7d0 (rindex)
+--182943-- REDIR: 0x4d454a0 (libc.so.6:__strlen_avx2) redirected to 0x483cc70 (strlen)
+--182943-- REDIR: 0x4c6e400 (libc.so.6:malloc) redirected to 0x4839710 (malloc)
+--182943-- REDIR: 0x4c6f160 (libc.so.6:calloc) redirected to 0x483bab0 (calloc)
+--182943-- REDIR: 0x4c6ec90 (libc.so.6:realloc) redirected to 0x483bd00 (realloc)
+--182943-- REDIR: 0x4d48930 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x48403b0 (memset)
+--182943-- REDIR: 0x4d450e0 (libc.so.6:__strchrnul_avx2) redirected to 0x4840f40 (strchrnul)
+--182943-- REDIR: 0x4d48490 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4841050 (mempcpy)
+--182943-- REDIR: 0x4c6ea30 (libc.so.6:free) redirected to 0x483a940 (free)
+==182943== Conditional jump or move depends on uninitialised value(s)
+==182943==    at 0x10FFB8: vTaskGetInfo (tasks.c:3198)
+==182943==    by 0x11015A: prvListTasksWithinSingleList (tasks.c:3277)
+==182943==    by 0x10F514: uxTaskGetSystemState (tasks.c:2178)
+==182943==    by 0x11058D: vTaskList (tasks.c:3710)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Uninitialised value was created by a heap allocation
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x110566: vTaskList (tasks.c:3706)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x110192: prvTaskCheckFreeStackSpace (tasks.c:3298)
+==182943==    by 0x11003B: vTaskGetInfo (tasks.c:3249)
+==182943==    by 0x11015A: prvListTasksWithinSingleList (tasks.c:3277)
+==182943==    by 0x10F514: uxTaskGetSystemState (tasks.c:2178)
+==182943==    by 0x11058D: vTaskList (tasks.c:3710)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x54357d0 is 0 bytes after a block of size 10,240 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E689: xTaskCreate (tasks.c:709)
+==182943==    by 0x10BA24: main (main.c:44)
+==182943== 
+--182943-- REDIR: 0x4d469e0 (libc.so.6:__strcpy_avx2) redirected to 0x483cdc0 (strcpy)
+==182943== Invalid write of size 1
+==182943==    at 0x1104FA: prvWriteNameToBuffer (tasks.c:3650)
+==182943==    by 0x110629: vTaskList (tasks.c:3735)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x110514: prvWriteNameToBuffer (tasks.c:3654)
+==182943==    by 0x110629: vTaskList (tasks.c:3735)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4DABF: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x4C4EF16: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af7 is 7 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4E132: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af8 is 8 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4E720: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af9 is 9 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid write of size 1
+==182943==    at 0x4C5B089: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435b03 is 19 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x483CC72: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af7 is 7 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x4C5A563: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x4C64F24: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435b02 is 18 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x484110E: mempcpy (vg_replace_strmem.c:1536)
+==182943==    by 0x4C64E41: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x4841100: mempcpy (vg_replace_strmem.c:1536)
+==182943==    by 0x4C64E41: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af1 is 1 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== Thread 2:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943==  Address 0x5435f58 is 0 bytes after a block of size 120 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x4C5A563: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943==  Address 0x5435f58 is 0 bytes after a block of size 120 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== 
+==182943== Process terminating with default action of signal 2 (SIGINT)
+==182943==    at 0x4CD3B8D: write (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C6482C: _IO_file_write@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C63B65: new_do_write (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C65918: _IO_do_write@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C65D82: _IO_file_overflow@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A6C9: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x10B9BF: demoTask2 (main.c:36)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== HEAP SUMMARY:
+==182943==     in use at exit: 42,108 bytes in 17 blocks
+==182943==   total heap usage: 24 allocs, 7 frees, 43,620 bytes allocated
+==182943== 
+==182943== Searching for pointers to 17 not-freed blocks
+==182943== Checked 25,472,624 bytes
+==182943== 
+==182943== Thread 1:
+==182943== 4 bytes in 1 blocks are still reachable in loss record 1 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x5300E34: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x5300EC9: g_private_get (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52D77CD: g_slice_alloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A694E: g_hash_table_new_full (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E4B: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== 16 bytes in 1 blocks are still reachable in loss record 2 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E689: xTaskCreate (tasks.c:709)
+==182943==    by 0x10F23E: vTaskStartScheduler (tasks.c:1742)
+==182943==    by 0x10BA2E: main (main.c:49)
+==182943== 
+==182943== 32 bytes in 1 blocks are still reachable in loss record 3 of 17
+==182943==    at 0x483BB65: calloc (vg_replace_malloc.c:760)
+==182943==    by 0x52B6591: g_malloc0 (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A30F1: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A698E: g_hash_table_new_full (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E4B: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== 64 bytes in 1 blocks are still reachable in loss record 4 of 17
+==182943==    at 0x48396AF: malloc (vg_replace_malloc.c:306)
+==182943==    by 0x52B6728: g_realloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A30DB: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A698E: g_hash_table_new_full (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E4B: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== 96 bytes in 1 blocks are still reachable in loss record 5 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x52B60E9: g_malloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52D77EF: g_slice_alloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A694E: g_hash_table_new_full (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E4B: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== 120 bytes in 1 blocks are still reachable in loss record 6 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== 176 bytes in 1 blocks are still reachable in loss record 7 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E69E: xTaskCreate (tasks.c:713)
+==182943==    by 0x10B9FA: main (main.c:42)
+==182943== 
+==182943== 176 bytes in 1 blocks are still reachable in loss record 8 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E69E: xTaskCreate (tasks.c:713)
+==182943==    by 0x10BA24: main (main.c:44)
+==182943== 
+==182943== 176 bytes in 1 blocks are still reachable in loss record 9 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E69E: xTaskCreate (tasks.c:713)
+==182943==    by 0x10F23E: vTaskStartScheduler (tasks.c:1742)
+==182943==    by 0x10BA2E: main (main.c:49)
+==182943== 
+==182943== 272 bytes in 1 blocks are possibly lost in loss record 10 of 17
+==182943==    at 0x483BB65: calloc (vg_replace_malloc.c:760)
+==182943==    by 0x4013DBA: _dl_allocate_tls (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4A150FE: pthread_create@@GLIBC_2.2.5 (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x10C317: pxPortInitialiseStack (port.c:170)
+==182943==    by 0x10E8B4: prvInitialiseNewTask (tasks.c:925)
+==182943==    by 0x10E6FF: xTaskCreate (tasks.c:740)
+==182943==    by 0x10B9FA: main (main.c:42)
+==182943== 
+==182943== 272 bytes in 1 blocks are possibly lost in loss record 11 of 17
+==182943==    at 0x483BB65: calloc (vg_replace_malloc.c:760)
+==182943==    by 0x4013DBA: _dl_allocate_tls (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4A150FE: pthread_create@@GLIBC_2.2.5 (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x10C317: pxPortInitialiseStack (port.c:170)
+==182943==    by 0x10E8B4: prvInitialiseNewTask (tasks.c:925)
+==182943==    by 0x10E6FF: xTaskCreate (tasks.c:740)
+==182943==    by 0x10BA24: main (main.c:44)
+==182943== 
+==182943== 272 bytes in 1 blocks are possibly lost in loss record 12 of 17
+==182943==    at 0x483BB65: calloc (vg_replace_malloc.c:760)
+==182943==    by 0x4013DBA: _dl_allocate_tls (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4A150FE: pthread_create@@GLIBC_2.2.5 (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x10C317: pxPortInitialiseStack (port.c:170)
+==182943==    by 0x10E8B4: prvInitialiseNewTask (tasks.c:925)
+==182943==    by 0x10E6FF: xTaskCreate (tasks.c:740)
+==182943==    by 0x10F23E: vTaskStartScheduler (tasks.c:1742)
+==182943==    by 0x10BA2E: main (main.c:49)
+==182943== 
+==182943== 1,536 bytes in 1 blocks are still reachable in loss record 13 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10CC43: prvSetupSignalsAndSchedulerPolicy (port.c:592)
+==182943==    by 0x4A1CA6E: __pthread_once_slow (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x10C263: pxPortInitialiseStack (port.c:147)
+==182943==    by 0x10E8B4: prvInitialiseNewTask (tasks.c:925)
+==182943==    by 0x10E6FF: xTaskCreate (tasks.c:740)
+==182943==    by 0x10B9FA: main (main.c:42)
+==182943== 
+==182943== 2,032 bytes in 1 blocks are still reachable in loss record 14 of 17
+==182943==    at 0x483BB65: calloc (vg_replace_malloc.c:760)
+==182943==    by 0x52B6591: g_malloc0 (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52D7A4A: g_slice_alloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52A694E: g_hash_table_new_full (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E4B: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== 10,240 bytes in 1 blocks are still reachable in loss record 15 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E689: xTaskCreate (tasks.c:709)
+==182943==    by 0x10B9FA: main (main.c:42)
+==182943== 
+==182943== 10,240 bytes in 1 blocks are still reachable in loss record 16 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E689: xTaskCreate (tasks.c:709)
+==182943==    by 0x10BA24: main (main.c:44)
+==182943== 
+==182943== 16,384 bytes in 1 blocks are still reachable in loss record 17 of 17
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x52B60E9: g_malloc (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x52C0E5D: ??? (in /usr/lib/libglib-2.0.so.0.6400.3)
+==182943==    by 0x40110F1: call_init.part.0 (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4011200: _dl_init (in /usr/lib/ld-2.31.so)
+==182943==    by 0x4002139: ??? (in /usr/lib/ld-2.31.so)
+==182943== 
+==182943== LEAK SUMMARY:
+==182943==    definitely lost: 0 bytes in 0 blocks
+==182943==    indirectly lost: 0 bytes in 0 blocks
+==182943==      possibly lost: 816 bytes in 3 blocks
+==182943==    still reachable: 41,292 bytes in 14 blocks
+==182943==         suppressed: 0 bytes in 0 blocks
+==182943== 
+==182943== ERROR SUMMARY: 103 errors from 20 contexts (suppressed: 0 from 0)
+==182943== 
+==182943== 1 errors in context 1 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x4C64F24: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435b02 is 18 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 1 errors in context 2 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC72: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 1 errors in context 3 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x4C4EF16: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af7 is 7 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 1 errors in context 4 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4DABF: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 1 errors in context 5 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x110514: prvWriteNameToBuffer (tasks.c:3654)
+==182943==    by 0x110629: vTaskList (tasks.c:3735)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af6 is 6 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 2 errors in context 6 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x4C5B089: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435b03 is 19 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 5 errors in context 7 of 20:
+==182943== Thread 2:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x4C5A563: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943==  Address 0x5435f58 is 0 bytes after a block of size 120 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== 
+==182943== 5 errors in context 8 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943==  Address 0x5435f58 is 0 bytes after a block of size 120 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10B9A5: demoTask1 (main.c:25)
+==182943==    by 0x10CA29: prvWaitForStart (port.c:502)
+==182943==    by 0x4A14421: start_thread (in /usr/lib/libpthread-2.31.so)
+==182943==    by 0x4CE2BF2: clone (in /usr/lib/libc-2.31.so)
+==182943== 
+==182943== 
+==182943== 5 errors in context 9 of 20:
+==182943== Thread 1:
+==182943== Invalid read of size 1
+==182943==    at 0x110192: prvTaskCheckFreeStackSpace (tasks.c:3298)
+==182943==    by 0x11003B: vTaskGetInfo (tasks.c:3249)
+==182943==    by 0x11015A: prvListTasksWithinSingleList (tasks.c:3277)
+==182943==    by 0x10F514: uxTaskGetSystemState (tasks.c:2178)
+==182943==    by 0x11058D: vTaskList (tasks.c:3710)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x54357d0 is 0 bytes after a block of size 10,240 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x10E689: xTaskCreate (tasks.c:709)
+==182943==    by 0x10BA24: main (main.c:44)
+==182943== 
+==182943== 
+==182943== 5 errors in context 10 of 20:
+==182943== Conditional jump or move depends on uninitialised value(s)
+==182943==    at 0x10FFB8: vTaskGetInfo (tasks.c:3198)
+==182943==    by 0x11015A: prvListTasksWithinSingleList (tasks.c:3277)
+==182943==    by 0x10F514: uxTaskGetSystemState (tasks.c:2178)
+==182943==    by 0x11058D: vTaskList (tasks.c:3710)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Uninitialised value was created by a heap allocation
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x110566: vTaskList (tasks.c:3706)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 6 errors in context 11 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x1104FA: prvWriteNameToBuffer (tasks.c:3650)
+==182943==    by 0x110629: vTaskList (tasks.c:3735)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 7 errors in context 12 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4E720: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af9 is 9 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 8 errors in context 13 of 20:
+==182943== Invalid write of size 1
+==182943==    at 0x4C66E55: _IO_default_xsputn (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C4E132: __vfprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5B083: __vsprintf_internal (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C3ABB7: sprintf (in /usr/lib/libc-2.31.so)
+==182943==    by 0x1106B8: vTaskList (tasks.c:3738)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af8 is 8 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 9 errors in context 14 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x4841100: mempcpy (vg_replace_strmem.c:1536)
+==182943==    by 0x4C64E41: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af1 is 1 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 10 errors in context 15 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x484110E: mempcpy (vg_replace_strmem.c:1536)
+==182943==    by 0x4C64E41: _IO_file_xsputn@@GLIBC_2.2.5 (in /usr/lib/libc-2.31.so)
+==182943==    by 0x4C5A627: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 13 errors in context 16 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x1106C4: vTaskList (tasks.c:3739)
+==182943==    by 0x116F0F: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:25)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af7 is 7 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== 
+==182943== 20 errors in context 17 of 20:
+==182943== Invalid read of size 1
+==182943==    at 0x483CC84: strlen (vg_replace_strmem.c:459)
+==182943==    by 0x4C5A563: puts (in /usr/lib/libc-2.31.so)
+==182943==    by 0x116F1B: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:26)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943==  Address 0x5435af0 is 0 bytes after a block of size 80 alloc'd
+==182943==    at 0x483977F: malloc (vg_replace_malloc.c:307)
+==182943==    by 0x10D2AB: pvPortMalloc (heap_3.c:86)
+==182943==    by 0x116ECC: tumFUtilPrintTaskStateList (TUM_FreeRTOS_Utils.c:16)
+==182943==    by 0x10BA29: main (main.c:47)
+==182943== 
+==182943== ERROR SUMMARY: 103 errors from 20 contexts (suppressed: 0 from 0)

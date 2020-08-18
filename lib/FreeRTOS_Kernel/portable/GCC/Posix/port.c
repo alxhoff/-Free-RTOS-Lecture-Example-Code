@@ -69,6 +69,8 @@
 /* Scheduler includes. */
 #include "FreeRTOS.h"
 #include "task.h"
+
+#include "TUM_FreeRTOS_Utils.h"
 /*-----------------------------------------------------------*/
 
 #define MAX_NUMBER_OF_TASKS (_POSIX_THREAD_THREADS_MAX)
@@ -395,6 +397,8 @@ void prvSetupTimerInterrupt(void)
 
 void vPortSystemTickHandler(int sig)
 {
+    /** printf("###### Before tick #######\n"); */
+    /** tumFUtilPrintTaskStateList(); */
     pthread_t xTaskToSuspend;
     pthread_t xTaskToResume;
 
@@ -406,6 +410,9 @@ void vPortSystemTickHandler(int sig)
                 prvGetThreadHandle(xTaskGetCurrentTaskHandle());
             /* Tick Increment. */
             xTaskIncrementTick();
+            printf("######## Tick ########\n");
+            /** printf("###### After tick #######\n"); */
+            /** tumFUtilPrintTaskStateList(); */
 
             /* Select Next Task. */
 #if (configUSE_PREEMPTION == 1)
